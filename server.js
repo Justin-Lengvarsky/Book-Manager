@@ -8,7 +8,7 @@ require('dotenv').config()
 
 let dbConnectionStr = process.env.DB_STRING
 
-MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true} )
+MongoClient.connect('mongodb+srv://lengvarskyj:Cooper01%40@cluster0.gv0gu.mongodb.net/?retryWrites=true&w=majority', { useUnifiedTopology: true} )
   .then(client => {
     console.log('Connected to Database')
     const db = client.db('book-manager')
