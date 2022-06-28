@@ -6,9 +6,9 @@ const cors = require('cors');
 const MongoClient = require('mongodb').MongoClient
 require('dotenv').config()
 
-// let dbConnectionStr = process.env.DB_STRING
+let dbConnectionStr = process.env.DB_STRING
 
-MongoClient.connect(DB_STRING, { useUnifiedTopology: true} )
+MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true} )
   .then(client => {
     console.log('Connected to Database')
     const db = client.db('book-manager')
