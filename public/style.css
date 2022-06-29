@@ -209,6 +209,10 @@ max-width: 100%;
     line-height: 2rem;
 }
 
+.bookListClass br, .quoteThreeDisplay {
+line-height: 4rem !important;
+}
+
 .deleteThisBook {
     background-color: #2B3A67;
     color: white;

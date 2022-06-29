@@ -91,15 +91,15 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true} )
       })
     })
 
-      app.delete('/deleteBook', (request, response) => {
-        booksCollection.deleteOne({title: request.body.titleS})
-        .then(result => {
-            console.log('Book Deleted')
-            response.json('Book Deleted')
-        })
-        .catch(err => {
-            console.error(err)
-        })
-    })
+    app.delete('/deleteBook', (request, response) => {
+      booksCollection.deleteOne({title: request.body.titleS})
+      .then(result => {
+          console.log('Book Deleted')
+          response.json('Book Deleted')
+      })
+      .catch(err => {
+          console.error(err)
+      })
   })
+})
 
