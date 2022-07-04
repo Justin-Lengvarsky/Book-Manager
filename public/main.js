@@ -87,6 +87,22 @@ function fullBook () {
 
     document.getElementById("space").appendChild(thisBook)
     document.querySelector("#bookList").style.display = "none";
+    document.querySelector(".bookTitle").style.marginBottom = "1rem";
+    document.querySelector(".bookAuthor").style.marginBottom = "1rem";
+
+    document.querySelector(".notesDisplayBR").style.display = "block";
+    document.querySelector(".notesDisplayBR").style.content = '""';
+    document.querySelector(".notesDisplayBR").style.marginTop = "2rem";
+
+    document.querySelector(".quoteDisplayBROne").style.display = "block";
+    document.querySelector(".quoteDisplayBROne").style.content = '""';
+    document.querySelector(".quoteDisplayBROne").style.marginTop = "2rem";
+    document.querySelector(".quoteDisplayBRTwo").style.display = "block";
+    document.querySelector(".quoteDisplayBRTwo").style.content = '""';
+    document.querySelector(".quoteDisplayBRTwo").style.marginTop = "2rem";
+    document.querySelector(".quoteDisplayBRThree").style.display = "block";
+    document.querySelector(".quoteDisplayBRThree").style.content = '""';
+    document.querySelector(".quoteDisplayBRThree").style.marginTop = "2rem";
 
     thisBook.style.width= "80%";
     thisBook.style.fontSize = "1.5rem";
@@ -203,3 +219,5 @@ async function deleteBook(){
         }
     }
 }
+
+

@@ -85,15 +85,6 @@ header {
 }
 
 
-
-
-
-
-
-
-
-
-
 #home-section {
     display: flex;
     flex-direction: row;
@@ -209,9 +200,7 @@ max-width: 100%;
     line-height: 2rem;
 }
 
-.bookListClass br, .quoteThreeDisplay {
-line-height: 4rem !important;
-}
+
 
 .deleteThisBook {
     background-color: #2B3A67;
@@ -385,13 +374,17 @@ Description: Define screen-size breakpoints here.
 
     .bookListClass {
         list-style-type: none;
-        border-radius: 5%;
+        border-radius: 1%;
         border: 5px solid  #C79D89;
         margin: 2rem 1rem;
         width: 80%;
         font-size: 1rem;
         padding: 5%;
         }
+
+    .quoteDisplay {
+        line-height: 2.5rem !important;
+    }
 
     #createNewBook {
         margin-top: 3rem;
@@ -466,270 +459,3 @@ Description: Define screen-size breakpoints here.
     }
 
 }
-
-
-
-
-/* 
-
-* {
-    box-sizing: border-box;
-}
-
-body{
-    text-align: center;
-    padding: 5% 10%;
-    background-color: rgb(245, 225, 216);
-    color: #22181C;
-    font-family: Noto Sans, sans-serif;
-}
-
-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 4rem
-}
-
-header h1 {
-    font-size: 3rem;
-    margin: 0;
-}
-
-header a {
-    color: rgb(152, 88, 57);
-    text-decoration: none;
-}
-
-nav a {
-    font-size: 2rem;
-    margin-left: 3rem;
-    color: rgb(152, 88, 57);
-    text-decoration: none;
-}
-
-nav {
-    width: 50%;
-    text-align: right;
-}
-
-#home-section {
-    display: flex;
-    flex-direction: row;
-    line-height: 5rem;
-    margin: 12rem 0;
-}
-
-#home-section h1 {
-   color: rgb(152, 88, 57);
-   font-size: 5rem;
-   margin: 0;
-}
-
-#home-section h4{
-    color: rgb(152, 88, 57);
-    font-size: 2.5rem;
-    margin: 0;
-    font-weight: normal;
- }
-
- #home-section p {
-    color: rgb(152, 88, 57);
-    margin: 0;
-    font-size: 1.5rem;
- }
-
-#home-section div{
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-}
-
-#quote-machine-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2rem;
-}
-
-#quote-machine {
-    display: flex;
-    flex-direction: column;
-    width: 90% !important;
-    height: 20rem;
-    align-items: center;
-}
-
-#quote-area {
-    display: flex;
-    flex-direction: row !important;
-    margin-bottom: 2rem;
-    width: 100% ;
-    justify-content: center;
-    font-style: italic;
-}
-
-#quote-area p {
-line-height: 1.75rem;
-margin: 0 1rem;
-}
-
-#titleSpace {
-    font-style: italic;
-}
-    
-#quotesList {
-    display: none;
-}
-
-.bookListClass {
-    list-style-type: none;
-    border-radius: 5%;
-    border: 5px solid  #C79D89;
-    margin: 3rem 1rem;
-    width: 30%;
-    order: 1;
-    background-color: white;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-    cursor: pointer;
-    font-size: 1rem;
-    padding: 2%;
-    word-wrap: break-word;
-}
-
-.bookListClass:hover {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-}
-
-.bookListClass h3{
-    font-size: 1.5em !important;
-   }
-
-.bookListClass button{
-    height: 2.5rem;
-    width: 7rem;
-    line-height: 1.25rem !important;
-    margin: 2rem 2rem 0;
-    font-size: 1rem;
-    border-radius: 3% !important;
-}
-
-#bookList {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 0;
-    flex-wrap: wrap;
-}
-
-.deleteThisBook {
-    background-color: #2B3A67;
-    color: white;
-    cursor: pointer;
-}
-
-.editThisBook {
-    background-color: #5299D3;
-    color: white;
-    cursor: pointer;
-}
-
-.checkGoodReads {
-    background-color: #5299D3;
-    color: white;
-    cursor: pointer;
-}
-
-.returnToList {
-    background-color: #2B3A67;
-    color: white;
-    cursor: pointer;
-}
-
-#updateSection, .otherInfo {
-    display: none;
-}
-
-.inputArea {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 15%;
-}
-
-.inputArea input{
-    width: 100%;
-    line-height: 2rem;
-    margin: 1.25rem 0;
-    font-size: 1rem;
-}
-
-.inputArea textarea{
-    width: 100%;
-    line-height: 2rem;
-    margin: 1.25rem 0;
-    font-size: 1rem;
-    border: 0px solid black;
-}
-
-.bigLabel {
-    display: block;
-    width: 100%;
-    text-align: left;  
-}
-
-.smallerInputGroup {
-    flex-direction: row;
-    width: 100%;
-}
-
-.smallerInput {
-    justify-content: center;
-    width: 20% !important;
-    margin: 1.25rem 1rem !important;
-    text-align: center;
-}
-
-.inputArea button{
-    align-self: center;
-    line-height: 2rem;
-    margin: 1.25rem 0;
-    width: 4rem;
-    text-align: center;
-}
-
-#bookList {
-    line-height: 2rem;
-}
-
-#space {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-bottom: 5rem;
-}
-
-#bookList a {
-    display: block;
-    line-height: 2rem;
-}
-
-#quoteSpace, #titleSpace, #leftQuote, #rightQuote {
-    opacity: 0;
-}
-
-#leftQuote, #rightQuote {
-    font-size: 1rem;
-    color:rgb(152, 88, 57);
-}
-
-#quoteSpace, #titleSpace {
-    font-size: 1.5rem !important;
-    text-align: center;
-}
-
-#quote-area {
-    width: 100% !important;
-} */
