@@ -1,3 +1,18 @@
+$(document).ready(function() {
+    // JQUERY NAV TOGGLE
+    $('#menu').bind('click',function(event){
+        $('#mainnav ul').slideToggle();
+    });
+
+    $(window).resize(function(){  
+        var w = $(window).width();  
+        if(w > 768) {  
+            $('#mainnav ul').removeAttr('style');  
+        }  
+    });
+    });
+
+
 
 const deleteText = document.querySelectorAll(".deleteThisBook")
 const editText = document.querySelectorAll(".editThisBook")
@@ -5,6 +20,7 @@ const clickTitle = document.querySelectorAll(".bookListClass")
 const checkGoodReads = document.querySelectorAll(".checkGoodReads")
 const returnToList = document.querySelectorAll(".returnToList")
 
+// Gives functionality to all buttons for each book on the Book List page.
 
 Array.from(deleteText).forEach((element)=>{
     element.addEventListener('click', deleteBook)
@@ -35,18 +51,18 @@ function goToGoodReads () {
     window.open(`https://www.goodreads.com/search?q=${bookTitle}`);
 };
 
+    // By clicking any individual book on the book list page, this function will show all the data for the book while hiding every other book.
 
 function fullBook () {
 
     const thisBook = this;
     const elements = document.getElementsByClassName("otherInfo");
-    const deleteButton = document.querySelectorAll(".deleteThisBook");
-    const editButton = document.querySelectorAll(".editThisBook");
+
+    // Shows all hidden data for clicked book. If any data for a book does not exist (E.g. no entered notes) then the below makes sure to keep those nodes hidden.
 
     for (let i=0; i<elements.length; i++) {
             elements[i].style.display = "inline"
             elements[i].style.lineHeight = "3rem"
-        // console.log(elements[i].innerHTML)
     }
 
     if (!this.childNodes[9].innerText){
@@ -85,6 +101,8 @@ function fullBook () {
         this.childNodes[39].style.display = "none";
     }
 
+    // Places the selected book into a new space and completely hides the list of books.
+
     document.getElementById("space").appendChild(thisBook)
     document.querySelector("#bookList").style.display = "none";
     document.querySelector(".bookTitle").style.marginBottom = "1rem";
@@ -109,10 +127,14 @@ function fullBook () {
     thisBook.style.padding = "5%";
 }
 
+// If the user presses the selected book's edit button, this will show the edit form to the user.
+
 function editScreen () {
     document.querySelector("#updateSection").style.display = "block"
     document.querySelector("#bookList").style.display = "none"
     document.querySelector("#space").style.display = "none"
+
+    // Below stores all the text values of the book in variables to use for the PUT request (will be used to find the book in MongoDB).
 
     let bName = this.parentNode.childNodes[1].innerText;
     let aName = this.parentNode.childNodes[3].innerText;
@@ -137,6 +159,8 @@ function editScreen () {
     let newStartDate = changeBookForm.childNodes[25].childNodes[3];
     let newEndDate = changeBookForm.childNodes[25].childNodes[7];
     let newRatingNum = changeBookForm.childNodes[25].childNodes[11];
+
+    // When the user presses the final change book button, below will store all the new text that has been submitted by the user. This will be stored for the PUT reqeust to replace the book data with the new saved information.
 
     bNewName.value = bName
     aNewName.value = aName
@@ -186,7 +210,6 @@ function editScreen () {
            console.error(err)
        }
    }
-
 }
 
 async function deleteBook(){

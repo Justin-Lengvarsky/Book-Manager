@@ -1,9 +1,11 @@
 
+/* BODY
+================================================== */
+
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    
+    box-sizing: border-box;  
 }
 
 body{
@@ -18,9 +20,9 @@ main {
 }
 
 .group:after {
-  content: "";
-  display: table;
-  clear: both;
+    content: "";
+    display: table;
+    clear: both;
 }
 
 header {
@@ -29,7 +31,7 @@ header {
     padding: 5% 10%;
 }
 
-/* #NAVIGATION
+/* NAVIGATION
 ================================================== */
 
 #mainnav {
@@ -51,7 +53,7 @@ header {
 }
 
 #mainnav h1{
-  margin-right: 45%;
+    margin-right: 45%;
 }
 
 #bookiLogo {
@@ -82,9 +84,11 @@ header {
 }
 
 .content {
-	  padding: 1.5em;
+	padding: 1.5em;
 }
 
+/* HOME PAGE
+================================================== */
 
 #home-section {
     display: flex;
@@ -144,10 +148,10 @@ header {
 }
 
 #quote-area p {
-line-height: 1.75rem;
-margin: 0 1rem;
-min-width: 20%;
-max-width: 100%;
+    line-height: 1.75rem;
+    margin: 0 1rem;
+    min-width: 20%;
+    max-width: 100%;
 }
 
 #titleSpace {
@@ -158,6 +162,9 @@ max-width: 100%;
 #quotesList {
     display: none;
 }
+
+/* BOOK LIST PAGE
+================================================== */
 
 .bookListClass {
     list-style-type: none;
@@ -181,7 +188,7 @@ max-width: 100%;
 
 .bookListClass h3{
     font-size: 1.5em !important;
-   }
+}
 
 .bookListClass button{
     height: 2.5rem;
@@ -200,8 +207,6 @@ max-width: 100%;
     flex-wrap: wrap;
     line-height: 2rem;
 }
-
-
 
 .deleteThisBook {
     background-color: #2B3A67;
@@ -238,7 +243,6 @@ max-width: 100%;
 #enterBookTitle {
     margin-bottom: 3rem;
 }
-
 
 .inputArea {
     display: flex;
@@ -361,7 +365,6 @@ Description: Define screen-size breakpoints here.
         text-align: left;
         padding: 0em .3em 0em 1.4em;
         color: white;
-        /* background-color: rgb(152, 88, 57); */
     }
 
     #bookiLogoMobile {
@@ -371,8 +374,13 @@ Description: Define screen-size breakpoints here.
         font-size: 2.5rem;
         text-align: center;
         background-color: rgb(152, 88, 57);
-        color: white;
         margin-left: .6rem;
+        text-decoration: none;
+    }
+
+    #bookiLogoMobile a{
+        text-decoration: none;
+        color: white;
     }
 
     #bookList {
@@ -390,7 +398,7 @@ Description: Define screen-size breakpoints here.
         width: 80%;
         font-size: 1rem;
         padding: 5%;
-        }
+    }
 
     .quoteDisplay {
         line-height: 2.5rem !important;
@@ -436,16 +444,16 @@ Description: Define screen-size breakpoints here.
         width: 100%;
      }
 
-     #home-section p {
+    #home-section p {
          margin-top: 2rem;
         line-height: 2rem;
-     }
+    }
 
-     #quote-machine-container {
+    #quote-machine-container {
          margin-top: 6rem !important;
-     }
+    }
 
-     #leftQuote, #rightQuote {
+    #leftQuote, #rightQuote {
         font-size: 1rem;
         line-height: 5.5rem;
     }
@@ -467,5 +475,4 @@ Description: Define screen-size breakpoints here.
         height: 3rem;
         margin-bottom: 2rem;
     }
-
 }
