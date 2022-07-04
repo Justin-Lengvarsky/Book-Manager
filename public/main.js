@@ -184,15 +184,10 @@ function editScreen () {
        }
        catch(err){
            console.error(err)
-           // history.back()
-           // window.open("/bookList", "_self")
-           // window.close()
        }
    }
 
 }
-
-  
 
 async function deleteBook(){
     const bName = this.parentNode.childNodes[1].innerText;
