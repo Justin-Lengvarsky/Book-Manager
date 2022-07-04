@@ -231,6 +231,15 @@ max-width: 100%;
     display: none;
 }
 
+#updateSection h3 {
+    margin-bottom: 3rem;
+}
+
+#enterBookTitle {
+    margin-bottom: 3rem;
+}
+
+
 .inputArea {
     display: flex;
     flex-direction: column;
