@@ -102,10 +102,7 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true} )
             },
       })
       .then(result => {
-
-        // response.render('bookList.ejs', {books: results})
         console.log('It got to here')
-
       })
       .catch(error => {
         console.error(error)
