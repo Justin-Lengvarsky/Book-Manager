@@ -7,12 +7,13 @@ const MongoClient = require('mongodb').MongoClient
 require('dotenv').config()
 
 let dbConnectionStr = process.env.DB_STRING
+let db;
 
 MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true} )
   .then(client => {
     console.log('Connected to Database')
-    const db = client.db('book-manager')
-    const booksCollection = db.collection('books')
+    db = client.db('book-manager')
+  })
 
     app.use(bodyParser.urlencoded({ extended: true }))
     app.use(express.static('public'))
@@ -20,10 +21,10 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true} )
     app.set('view engine', 'ejs')
     app.listen(process.env.PORT || PORT, ()=>{
       console.log(`Server running on port ${PORT}`)
-  })
+    })
 
     app.get('/', (req, res) => {
-        booksCollection.find().toArray()
+        db.collection('books').find().toArray()
           .then(results => {
             res.render('index.ejs', {books: results})
             console.log(results)
@@ -34,7 +35,7 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true} )
       })   
       
       app.get('/bookList', (req, res) => {
-        booksCollection.find().toArray()
+        db.collection('books').find().toArray()
           .then(results => {
             res.render('bookList.ejs', {books: results})
             console.log(results)
@@ -45,7 +46,7 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true} )
       })   
 
       app.get('/addNewBook', (req, res) => {
-        booksCollection.find().toArray()
+        db.collection('books').find().toArray()
           .then(results => {
             res.render('addBook.ejs')
             console.log(results)
@@ -53,10 +54,21 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true} )
           .catch(err => {
             console.error(err)
           })
-      })     
+      })   
+      
+      app.get('/editBook', (req, res) => {
+        db.collection('books').find().toArray()
+          .then(results => {
+            res.render('bookList.ejs', {books: results})
+            console.log('it got here!')
+          })
+          .catch(err => {
+            console.error(err)
+          })
+      })   
 
     app.post('/books', (req, res) => {
-        booksCollection.insertOne(req.body)
+        db.collection('books').insertOne(req.body)
           .then(result => {
             res.redirect('/bookList')
           })
@@ -64,11 +76,17 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true} )
       })
 
     app.put('/editBook', (request, response) => {
-      booksCollection.updateOne({title: request.body.oldTitleS, author: request.body.oldAuthorS, 
-        bookRating: request.body.oldRatingNumS, bookNotes: request.body.oldNoteS,
-        quoteOne: request.body.oldQuoteOneS, quoteTwo: request.body.oldQuoteTwoS, 
-        quoteThree: request.body.oldQuoteThreeS, startDate: request.body.oldStartDateS, 
-        finishDate: request.body.oldFinishDateS
+      db.collection('books').updateOne(
+        {
+            title: request.body.oldTitleS, 
+            author: request.body.oldAuthorS, 
+            bookRating: request.body.oldRatingNumS, 
+            bookNotes: request.body.oldNoteS,
+            quoteOne: request.body.oldQuoteOneS, 
+            quoteTwo: request.body.oldQuoteTwoS, 
+            quoteThree: request.body.oldQuoteThreeS, 
+            startDate: request.body.oldStartDateS, 
+            finishDate: request.body.oldFinishDateS
       }, 
         {
           $set: {
@@ -84,7 +102,10 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true} )
             },
       })
       .then(result => {
+
+        // response.render('bookList.ejs', {books: results})
         console.log('It got to here')
+
       })
       .catch(error => {
         console.error(error)
@@ -92,7 +113,7 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true} )
     })
 
     app.delete('/deleteBook', (request, response) => {
-      booksCollection.deleteOne({title: request.body.titleS})
+      db.collection('books').deleteOne({title: request.body.titleS})
       .then(result => {
           console.log('Book Deleted')
           response.json('Book Deleted')
@@ -101,5 +122,5 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true} )
           console.error(err)
       })
   })
-})
+
 

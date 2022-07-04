@@ -6,7 +6,6 @@ const checkGoodReads = document.querySelectorAll(".checkGoodReads")
 const returnToList = document.querySelectorAll(".returnToList")
 
 
-
 Array.from(deleteText).forEach((element)=>{
     element.addEventListener('click', deleteBook)
 })
@@ -94,7 +93,6 @@ function fullBook () {
     thisBook.style.padding = "5%";
 }
 
-
 function editScreen () {
     document.querySelector("#updateSection").style.display = "block"
     document.querySelector("#bookList").style.display = "none"
@@ -137,46 +135,48 @@ function editScreen () {
     const finalEditText = document.querySelector(".finalEditThisBook")
     finalEditText.addEventListener('click', editBook)
 
-   async function editBook(){
-         try{
-            const response = await fetch('editBook', {
-                method: 'put',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({
-                'oldTitleS': bName,
-                'oldAuthorS': aName,
-                'oldRatingNumS': ratingNum,
-                'oldNoteS': notes,
-                'oldQuoteOneS': qOneText,
-                'oldQuoteTwoS': qTwoText,
-                'oldQuoteThreeS': qThreeText,
-                'oldStartDateS': startDate,
-                'oldFinishDateS': endDate,
+    async function editBook(){
+        try{
+           const response = await fetch('editBook', {
+               method: 'put',
+               headers: {'Content-Type': 'application/json'},
+               body: JSON.stringify({
+               'oldTitleS': bName,
+               'oldAuthorS': aName,
+               'oldRatingNumS': ratingNum,
+               'oldNoteS': notes,
+               'oldQuoteOneS': qOneText,
+               'oldQuoteTwoS': qTwoText,
+               'oldQuoteThreeS': qThreeText,
+               'oldStartDateS': startDate,
+               'oldFinishDateS': endDate,
 
-                'titleS': bNewName.value,
-                'authorS': aNewName.value,
-                'ratingNumS': newRatingNum.value,
-                'noteS': newNotes.value,
-                'quoteOneS': qOneNewText.value,
-                'quoteTwoS': qTwoNewText.value,
-                'quoteThreeS': qThreeNewText.value,
-                'startDateS': newStartDate.value,
-                'finishDateS': newEndDate.value
-                })
-              })
-            const data = await response.json()
-            console.log(data)
-            location.reload()
+               'titleS': bNewName.value,
+               'authorS': aNewName.value,
+               'ratingNumS': newRatingNum.value,
+               'noteS': newNotes.value,
+               'quoteOneS': qOneNewText.value,
+               'quoteTwoS': qTwoNewText.value,
+               'quoteThreeS': qThreeNewText.value,
+               'startDateS': newStartDate.value,
+               'finishDateS': newEndDate.value
+               })
+             })
+           console.log(response)
+           const data = response.json()
+           console.log(data)
+       }
+       catch(err){
+           console.error(err)
+           // history.back()
+           // window.open("/bookList", "_self")
+           // window.close()
+       }
+   }
 
-        }
-        catch(err){
-            console.error(err)
-            // history.back()
-            window.open("/bookList", "_self")
-            window.close()
-        }
-    }
 }
+
+  
 
 async function deleteBook(){
     const bName = this.parentNode.childNodes[1].innerText;
