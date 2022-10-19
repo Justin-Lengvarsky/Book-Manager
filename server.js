@@ -7,6 +7,7 @@ const MongoClient = require('mongodb').MongoClient
 require('dotenv').config()
  
 let db;
+console.log(process.env.DB_STRING)
 
 MongoClient.connect(process.env.DB_STRING, { useUnifiedTopology: true} )
   .then(client => {
