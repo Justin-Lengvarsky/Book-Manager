@@ -12,7 +12,7 @@ MongoClient.connect(process.env.DB_STRING, { useUnifiedTopology: true} )
   .then(client => {
     console.log('Connected to Database')
     db = client.db('book-manager')
-  })
+
 
     app.use(bodyParser.urlencoded({ extended: true }))
     app.use(express.static('public'))
@@ -118,5 +118,5 @@ MongoClient.connect(process.env.DB_STRING, { useUnifiedTopology: true} )
           console.error(err)
       })
   })
-
+})
 
