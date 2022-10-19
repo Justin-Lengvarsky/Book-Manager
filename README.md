@@ -2,7 +2,7 @@
 
 This CRUD application allows users to create and maintain books that they have read. This app displays the user's favorite quotes from the book, their personal rating of the book and each novel comes with a link that will bring the user to Goodreads to find more informatin on that particular story. 
 
-**Link to project:** (https://book-manager-crud-app.herokuapp.com)
+**Link to project:** (https://book-manager.cyclic.app)
 
 ![Image of App](https://res.cloudinary.com/duf8g2rbv/image/upload/v1656465128/Screen_Shot_2022-06-28_at_9.10.01_PM_gbx4ha.png)
 
