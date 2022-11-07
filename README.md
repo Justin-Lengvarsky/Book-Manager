@@ -4,8 +4,6 @@ This CRUD application allows users to create and maintain books that they have r
 
 **Link to project:** (https://book-manager.cyclic.app)
 
-![Image of App](https://res.cloudinary.com/duf8g2rbv/image/upload/v1656465128/Screen_Shot_2022-06-28_at_9.10.01_PM_gbx4ha.png)
-
 <a target="_blank" href="https://book-manager.cyclic.app">
     <img src="https://user-images.githubusercontent.com/87950479/178039628-2b063b90-04d1-45b9-ac7a-69c309d42ef0.gif" width="100%" alt="Book App"/>
 </a>
